@@ -75,7 +75,7 @@ local Starlight = {
 
 	InterfaceBuild = "B5B9",
 
-	WindowKeybind = "K",
+	WindowKeybind = "LeftControl",
 
 	Minimized = false,
 	Maximized = false,
@@ -155,9 +155,8 @@ else
 end
 
 local isStudio = RunService:IsStudio() or false
-local website = "nebulasoftworks.xyz/starlight"
 local Acrylic = isStudio and require(ReplicatedStorage.AcrylicBundled)
-	or loadstring(game:HttpGet("https://raw." .. website .. "/AcrylicModule.luau"))()
+	or loadstring(game:HttpGet("https://raw.githubusercontent.com/the-amazing-digital-circus/Starlight-UI-Milk/master/Modules/Acrylic/Build.luau"))()
 Acrylic.Init()
 
 local Request = (fluxus and fluxus.request)
@@ -3380,7 +3379,7 @@ function Starlight:CreateWindow(WindowSettings)
 			Tab.Instances.Page.ImageBackdrop.Image = "rbxassetid://78881404248017"
 		end
 
-		Tab.Instances.Page.playerDisplay.Text = `Welcome, {Player.DisplayName}`
+		Tab.Instances.Page.playerDisplay.Text = `Hello, {Player.DisplayName}`
 		Tab.Instances.Page.Thumbnail.ImageLabel.Image =
 			Players:GetUserThumbnailAsync(Player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size100x100)
 
@@ -3390,16 +3389,7 @@ function Starlight:CreateWindow(WindowSettings)
 				local hour = t.hour
 
 				local formatted = string.format("%02d : %02d : %02d", hour, t.min, t.sec)
-				local greetingString = ""
-				if hour >= 4 and hour < 12 then
-					greetingString = "Good Morning!"
-				elseif hour >= 12 and hour < 19 then
-					greetingString = "How's Your Day Going?"
-				elseif hour >= 19 and hour <= 23 then
-					greetingString = "Sweet Dreams."
-				else
-					greetingString = "Jeez you should be asleep..."
-				end
+				local greetingString = "Smiles delivered!"
 				Tab.Instances.Page.playerUser.Text = `{greetingString} | {Player.Name}`
 
 				Tab.Instances.Page.clock.Text =
@@ -3450,13 +3440,13 @@ function Starlight:CreateWindow(WindowSettings)
 
 		Tab.Instances.Page.Holder.Center.Executor.Header.Text = executorname
 		if table.find(TabSettings.SupportedExecutors, executorname) then
-			Tab.Instances.Page.Holder.Center.Executor.Subheader.Text = "Your Executor Is Supported By \nThis Script."
+			Tab.Instances.Page.Holder.Center.Executor.Subheader.Text = "This executor is\nsupported by Milk."
 		end
 		if table.find(TabSettings.UnsupportedExecutors, executorname) then
-			Tab.Instances.Page.Holder.Center.Executor.Subheader.Text = "Your Executor Is Unsupported \nBy This Script."
+			Tab.Instances.Page.Holder.Center.Executor.Subheader.Text = "This executor is partially\nsupported by Milk."
 		end
 
-		Tab.Instances.Page.Holder.Left.Server.Subheader.Text = "Currently Playing "
+		Tab.Instances.Page.Holder.Left.Server.Subheader.Text = "Currently playing "
 			.. MarketplaceService:GetProductInfo(game.PlaceId).Name
 		Tab.Instances.Page.Holder.Left.Server.Frame.serverregion.Text = '<font size="14" color="#FFF" weight="semibold">Region</font>\n'
 			.. Localization:GetCountryRegionForPlayerAsync(Player)
@@ -3469,11 +3459,11 @@ function Starlight:CreateWindow(WindowSettings)
 			Tab.Instances.Page.Holder.Left.Server.Frame.playercount.Text = '<font size="14" color="#FFF" weight="semibold">Players</font>\n'
 				.. #Players:GetChildren()
 				.. (#Players:GetChildren() > 1 and " Players" or " Player")
-				.. " In\nThis Server"
+				.. " in\nthis Server"
 			Tab.Instances.Page.Holder.Left.Server.Frame.maxplayers.Text = '<font size="14" color="#FFF" weight="semibold">Capacity</font>\n'
 				.. Players.MaxPlayers
 				.. (Players.MaxPlayers > 1 and " Players" or " Player")
-				.. " In\ncan join."
+				.. " can join."
 		end
 		local function protectedUpdate() -- apparently creating less funcs and locals help with memory so im doing this
 			pcall(updatePlayerCount)
@@ -3574,7 +3564,7 @@ function Starlight:CreateWindow(WindowSettings)
 				end
 			end
 
-			Tab.Instances.Page.Holder.Left.Server.Frame.time.Text = '<font size="14" color="#FFF" weight="semibold">Players</font>\n'
+			Tab.Instances.Page.Holder.Left.Server.Frame.time.Text = '<font size="14" color="#FFF" weight="semibold">Server Age</font>\n'
 				.. convertToHMS(time())
 		end
 		
@@ -10474,10 +10464,10 @@ function Starlight.FileSystem:RefreshConfigList(path)
 
 	if not isfolder(path) then
 		Starlight:Notification({
-			Title = "shitty executor",
+			Title = "Error Loading Configurations",
 			Icon = 0,
-			Content = identifyexecutor() .. " is so shit bro.\n your file system is just broken 💀",
-		}, "hdajdnj")
+			Content = "The configurations folder could not be located",
+		}, "Error")
 		return {}
 	end
 
