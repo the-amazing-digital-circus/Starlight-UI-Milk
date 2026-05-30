@@ -3458,11 +3458,11 @@ function Starlight:CreateWindow(WindowSettings)
 		local function updatePlayerCount()
 			Tab.Instances.Page.Holder.Left.Server.Frame.playercount.Text = '<font size="14" color="#FFF" weight="semibold">Players</font>\n'
 				.. #Players:GetChildren()
-				.. (#Players:GetChildren() > 1 and " Players" or " Player")
+				.. (#Players:GetChildren() > 1 and " players" or " player")
 				.. " in\nthis Server"
 			Tab.Instances.Page.Holder.Left.Server.Frame.maxplayers.Text = '<font size="14" color="#FFF" weight="semibold">Capacity</font>\n'
 				.. Players.MaxPlayers
-				.. (Players.MaxPlayers > 1 and " Players" or " Player")
+				.. (Players.MaxPlayers > 1 and " players" or " player")
 				.. " can join."
 		end
 		local function protectedUpdate() -- apparently creating less funcs and locals help with memory so im doing this
