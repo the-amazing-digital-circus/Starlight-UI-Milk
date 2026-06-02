@@ -3564,7 +3564,7 @@ function Starlight:CreateWindow(WindowSettings)
 				end
 			end
 
-			Tab.Instances.Page.Holder.Left.Server.Frame.time.Text = '<font size="14" color="#FFF" weight="semibold">Server Age</font>\n'
+			Tab.Instances.Page.Holder.Left.Server.Frame.time.Text = '<font size="14" color="#FFF" weight="semibold">Session Time</font>\n'
 				.. convertToHMS(time())
 		end
 		
