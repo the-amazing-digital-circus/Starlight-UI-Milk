@@ -9703,7 +9703,6 @@ function Starlight:CreateWindow(WindowSettings)
 
 				inputPath = instance:CreateInput({
 					Name = "Config Name",
-					Tooltip = "Insert a name for the config you want to create.",
 					PlaceholderText = "Name",
 					RemoveTextOnFocus = true,
 					IgnoreConfig = true,
@@ -9714,7 +9713,6 @@ function Starlight:CreateWindow(WindowSettings)
 					Name = "Create Config",
 					Icon = 6035053304,
 					CenterContent = ButtonsCentered,
-					Tooltip = "Create a configuration to access any time with all your current settings.",
 					Callback = function()
 						if not inputPath.Values.CurrentValue or String.IsEmptyOrNull(inputPath.Values.CurrentValue) then
 							Starlight:Notification({
@@ -9772,7 +9770,6 @@ function Starlight:CreateWindow(WindowSettings)
 				local configSelection = instance
 					:CreateLabel({
 						Name = "Select Config",
-						Tooltip = "Select a config for this section to work on.",
 					}, "__prebuiltConfigSelector_lbl")
 					:AddDropdown({
 						Options = Starlight.FileSystem:RefreshConfigList(
@@ -9789,7 +9786,6 @@ function Starlight:CreateWindow(WindowSettings)
 					Name = "Load Config",
 					Icon = 10723433935,
 					CenterContent = ButtonsCentered,
-					Tooltip = "Load the selected configuration and all its settings.",
 					Callback = function()
 						if selectedConfig == nil then
 							Starlight:Notification({
@@ -9826,7 +9822,6 @@ function Starlight:CreateWindow(WindowSettings)
 					Name = "Update Config",
 					Icon = 6031225810,
 					CenterContent = ButtonsCentered,
-					Tooltip = "Overwrite and update the selected configuration and all its settings with your current ones.",
 					Callback = function()
 						if selectedConfig == nil then
 							Starlight:Notification({
@@ -9863,7 +9858,6 @@ function Starlight:CreateWindow(WindowSettings)
 					Name = "Refresh Configuration List",
 					Icon = 6035056483,
 					CenterContent = ButtonsCentered,
-					Tooltip = "Manually refresh the list of configurations incase of any errors.",
 					Callback = function()
 						instance.Elements["__prebuiltConfigSelector_lbl"].NestedElements["__prebuiltConfigSelector_lbl"]:Set({
 							Options = Starlight.FileSystem:RefreshConfigList(
@@ -9885,7 +9879,6 @@ function Starlight:CreateWindow(WindowSettings)
 					Name = "Autoload Configuration",
 					Icon = 6023565901,
 					CenterContent = ButtonsCentered,
-					Tooltip = "Set the selected configuration to load whenever you run the script automatically.",
 					Callback = function()
 						if selectedConfig == nil then
 							Starlight:Notification({
@@ -9915,9 +9908,6 @@ function Starlight:CreateWindow(WindowSettings)
 
 				instance:CreateDivider()
 
-				local warning = instance:CreateLabel({
-					Name = "! DANGER ZONE !",
-				}, "__prebuiltConfigDangerWarning")
 				warning.Instance.Header.TextXAlignment = Enum.TextXAlignment.Center
 				warning.Instance.Header.Size = UDim2.new(1, 0, 0, warning.Instance.Header.Size.Y.Offset)
 				warning.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 0)
@@ -9926,7 +9916,6 @@ function Starlight:CreateWindow(WindowSettings)
 					Name = "Clear Autoload",
 					Icon = 6034767619,
 					CenterContent = ButtonsCentered,
-					Tooltip = "Removes the autoloading of the current autoload config.",
 					Callback = function()
 						if isfile(`{Starlight.FileSystem.Folder}/{folderpath}/configs/autoload.txt`) then
 							delfile(`{Starlight.FileSystem.Folder}/{folderpath}/configs/autoload.txt`)
@@ -9946,7 +9935,6 @@ function Starlight:CreateWindow(WindowSettings)
 					Name = "Delete Configuration",
 					Icon = 115577765236264,
 					CenterContent = ButtonsCentered,
-					Tooltip = "Deleting A Configuration is permanent and you have to redo it!",
 					Callback = function()
 						if selectedConfig == nil then
 							Starlight:Notification({
