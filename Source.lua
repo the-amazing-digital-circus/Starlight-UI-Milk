@@ -9907,10 +9907,6 @@ function Starlight:CreateWindow(WindowSettings)
 
 				instance:CreateDivider()
 
-				warning.Instance.Header.TextXAlignment = Enum.TextXAlignment.Center
-				warning.Instance.Header.Size = UDim2.new(1, 0, 0, warning.Instance.Header.Size.Y.Offset)
-				warning.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 0)
-
 				instance:CreateButton({
 					Name = "Clear Autoload",
 					Icon = 6034767619,
