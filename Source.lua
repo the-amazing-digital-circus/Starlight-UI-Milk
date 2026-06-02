@@ -1559,14 +1559,14 @@ local function Hide(Interface, JustHide: boolean?, Notify: boolean?, Bind: strin
 			Starlight:Notification({
 				Title = "Interface Hidden",
 				Icon = 87575513726659,
-				Content = "The Interface Has Been Hidden. You May Reopen It By Pressing The Small Icon Button. ",
+				Content = "The interface has been hidden. Reopen it by pressing the small icon button. ",
 				Duration = 2,
 			})
 		else
 			Starlight:Notification({
 				Title = "Interface Hidden",
 				Icon = 87575513726659,
-				Content = "The Interface Has Been Hidden. You May Reopen It By Pressing The " .. Bind .. " Key.  ",
+				Content = "The interface has been hidden. Reopen it by pressing the " .. Bind .. " key.  ",
 				Duration = 2,
 			})
 		end
@@ -2538,7 +2538,7 @@ function Starlight:CreateWindow(WindowSettings)
 				.. (StarlightUI.Resources:FindFirstChild("Build") and StarlightUI.Resources:FindFirstChild("Build").Value or "No Build")
 				.. "). of Starlight\n\nThis version of Starlight is intended for interface build "
 				.. Starlight.InterfaceBuild
-				.. ".\nTry rerunning the script. If the issue persists, join our discord for support."
+				.. ".\nTry rerunning the script. If the issue persists, join our Discord for support."
 		)
 		pcall(function()
 			Starlight:Notification({
@@ -2547,7 +2547,7 @@ function Starlight:CreateWindow(WindowSettings)
 					.. (StarlightUI.Resources:FindFirstChild("Build") and StarlightUI.Resources:FindFirstChild("Build").Value or "No Build")
 					.. "). of Starlight\n\nThis version of Starlight is intended for interface build "
 					.. Starlight.InterfaceBuild
-					.. ". \nTry rerunning the script. If the issue persists, join our discord for support.",
+					.. ". \nTry rerunning the script. If the issue persists, join our Discord for support.",
 				Icon = 129398364168201,
 			})
 		end)
@@ -9788,11 +9788,6 @@ function Starlight:CreateWindow(WindowSettings)
 					CenterContent = ButtonsCentered,
 					Callback = function()
 						if selectedConfig == nil then
-							Starlight:Notification({
-								Title = "Null Selection",
-								Icon = 129398364168201,
-								Content = "Configuration Must Be Selected!",
-							})
 							return
 						end
 
@@ -9824,11 +9819,6 @@ function Starlight:CreateWindow(WindowSettings)
 					CenterContent = ButtonsCentered,
 					Callback = function()
 						if selectedConfig == nil then
-							Starlight:Notification({
-								Title = "Null Selection",
-								Icon = 129398364168201,
-								Content = "Configuration Must Be Selected!",
-							})
 							return
 						end
 
@@ -9881,11 +9871,6 @@ function Starlight:CreateWindow(WindowSettings)
 					CenterContent = ButtonsCentered,
 					Callback = function()
 						if selectedConfig == nil then
-							Starlight:Notification({
-								Title = "Null Selection",
-								Icon = 129398364168201,
-								Content = "Configuration Must Be Selected!",
-							})
 							return
 						end
 						local name = selectedConfig
@@ -9933,11 +9918,6 @@ function Starlight:CreateWindow(WindowSettings)
 					CenterContent = ButtonsCentered,
 					Callback = function()
 						if selectedConfig == nil then
-							Starlight:Notification({
-								Title = "Null Selection",
-								Icon = 129398364168201,
-								Content = "Configuration Must Be Selected!",
-							})
 							return
 						end
 						if
@@ -9967,7 +9947,7 @@ function Starlight:CreateWindow(WindowSettings)
 						Starlight:Notification({
 							Title = "Configuration Deleted",
 							Icon = 6026568227,
-							Content = string.format("Deleted Configuration %q", selectedConfig),
+							Content = string.format("Deleted configuration %q", selectedConfig),
 						})
 						if selectedConfig then
 							selectedConfig = nil
