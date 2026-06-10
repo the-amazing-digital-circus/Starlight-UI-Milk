@@ -3273,7 +3273,7 @@ function Starlight:CreateWindow(WindowSettings)
 		}
 
 		if not prebuiltTabSection then
-			prebuiltTabSection = Starlight.Window:CreateTabSection()
+			prebuiltTabSection = Starlight.Window:CreateTabSection("Landing", false)
 			prebuiltTabSection.Instance.LayoutOrder = -1
 		end
 
